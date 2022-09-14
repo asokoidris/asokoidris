@@ -3,6 +3,7 @@ const router = express.Router()
 const ProductController = require('../controllers/product');
 const { verifyToken, verifyTokenAndAuthorization,
   verifyTokenAndAdmin } = require('../middleware/jwt');
+// const {imageUpload} = require ('../middleware/file')
 const multer = require('multer')
 const path = require('path');
 
@@ -43,9 +44,8 @@ router.post('/',
   imageUpload.single('image'),
   verifyTokenAndAdmin,
   ProductController.CreateProduct,
-  
-)
 
+)
 
 
 // UPDATE PRRODUCT
