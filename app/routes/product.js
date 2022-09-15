@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const ProductValidate = require ('../validation/product')
 const ProductController = require('../controllers/product');
 const { verifyToken, verifyTokenAndAuthorization,
   verifyTokenAndAdmin } = require('../middleware/jwt');
@@ -44,6 +45,7 @@ router.post('/',
   imageUpload.single('image'),
   verifyTokenAndAdmin,
   ProductController.CreateProduct,
+  ProductValidate.validateProduct
 
 )
 
@@ -52,26 +54,30 @@ router.post('/',
 
 router.put('/:id',
   verifyTokenAndAdmin,
-  ProductController.UpdateProduct
+  ProductController.UpdateProduct,
+    ProductValidate.validateProduct
 )
 
 // DELETE PRRODUCT
 
 router.delete('/:id',
   verifyTokenAndAdmin,
-  ProductController.DeleteProduct
+  ProductController.DeleteProduct,
+    ProductValidate.validateProduct
 )
 
 // GET PRRODUCT
 
 router.get('/find/:id',
-  ProductController.GetProduct
+  ProductController.GetProduct,
+  ProductValidate.validateProduct
 )
 
 // GET ALL PRRODUCTS
 
 router.get('/',
-  ProductController.GetAllProducts
+  ProductController.GetAllProducts,
+    ProductValidate.validateProduct
 )
 
 

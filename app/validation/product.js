@@ -1,4 +1,4 @@
-const joi = required('joi');
+const joi = require ('joi');
 
 class ProductValidate {
 
