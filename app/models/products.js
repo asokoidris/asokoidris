@@ -1,12 +1,12 @@
-const mongoose = require ('mongoose');
+const mongoose = require('mongoose');
 const ProductSchema = new mongoose.Schema({
-    title:{
-         type: String,
-         required: true,
-         trim: true
+    title: {
+        type: String,
+        required: true,
+        trim: true
     },
-    desc:{ 
-        type: String, 
+    desc: {
+        type: String,
         required: true,
         trim: true
     },
@@ -14,7 +14,7 @@ const ProductSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    
+
     categories: {
         type: Array
     },
@@ -29,7 +29,7 @@ const ProductSchema = new mongoose.Schema({
         required: true
     },
 },
-{timestamps: true}
+    { timestamps: true }
 )
 
 

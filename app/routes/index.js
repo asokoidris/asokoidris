@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const morgan = require ('morgan');
-const multer = require ('multer')
+const morgan = require('morgan');
+const multer = require('multer')
 
 
 const userRoute = require('../routes/users');
