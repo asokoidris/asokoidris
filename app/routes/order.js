@@ -2,7 +2,8 @@ const express = require('express')
 const router = express.Router()
 const OrderValidate = require('../validation/order')
 const OrderController = require('../controllers/order');
-const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = require('../middleware/jwt');
+const { verifyToken, verifyTokenAndAuthorization,
+    verifyTokenAndAdmin } = require('../middleware/authmiddleware');
 
 
 // CREATE ORDER

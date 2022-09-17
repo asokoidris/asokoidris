@@ -3,7 +3,7 @@ const router = express.Router()
 const ProductValidate = require('../validation/product')
 const ProductController = require('../controllers/product');
 const { verifyToken, verifyTokenAndAuthorization,
-  verifyTokenAndAdmin } = require('../middleware/jwt');
+  verifyTokenAndAdmin } = require('../middleware/authmiddleware');
 // const {imageUpload} = require ('../middleware/file')
 const multer = require('multer')
 const path = require('path');
@@ -42,11 +42,9 @@ const imageUpload = multer({
 
 // ADD PRODUCT
 router.post('/',
-  imageUpload.single('image'),
-  verifyTokenAndAdmin,
-  ProductController.CreateProduct,
-  ProductValidate.validateProduct
-
+   imageUpload.single('image'),
+   verifyTokenAndAdmin,
+  ProductController.CreateProduct
 )
 
 

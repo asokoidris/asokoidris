@@ -1,6 +1,6 @@
 const express = require('express');
 const { verifyToken, verifyTokenAndAuthorization,
-    verifyTokenAndAdmin } = require('../middleware/jwt')
+    verifyTokenAndAdmin } = require('../middleware/authmiddleware');
 const router = express.Router();
 const UserController = require('../controllers/users')
 const UserValidate = require('../validation/user')
